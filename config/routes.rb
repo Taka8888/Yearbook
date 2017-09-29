@@ -1,15 +1,25 @@
 Rails.application.routes.draw do
-  resources :notifications
-  resources :relationships
-  resources :messages
-  resources :conversations
-  devise_for :users
-  resources :comments
-  get 'posts' => 'post#index'
+  root 'top#new'
 
-  root 'top#index'
+  resources :posts, only: [:index, :create, :edit, :show, :update, :destroy] do
+    resources :comments, only: [:create, :edit, :update, :destroy]
 
-    if Rails.env.development?
-       mount LetterOpenerWeb::Engine, at: "/letter_opener"
-    end
+  end
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+  }
+
+  resources :users, only: [:index, :show]
+
+  resources :conversations, only: :create do
+    resources :messages, only: [:index, :create]
+  end
+
+  resources :relationships, only: [:create, :destroy]
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
