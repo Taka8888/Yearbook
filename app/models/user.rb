@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -110,4 +111,7 @@ class User < ActiveRecord::Base
     not_friend = User.where.not(id: self.id).order("RANDOM()").limit(10) - (followers & followed_users)
     not_friend.sample(3)
   end
+=======
+class User < ApplicationRecord
+>>>>>>> 64ebbb9da1e7e79fba6253f73a840ffee0e72595
 end
