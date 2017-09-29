@@ -1,0 +1,20 @@
+<% if comment.errors.any? %>
+    <div class="alert alert-danger">
+      <div class="alert-danger-text">
+        <p><%= comment.errors.count %>つのエラーが含まれています。</p>
+      </div>
+    <ul>
+      <% comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    </div>
+<% end %>
+<%= form_for(@comment, url: comment_choose_new_or_edit(post, comment), data: { remote: true }) do |f|  %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: "コメントする...", class: "form-control"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit '送信', class: 'btn btn-primary btn-sm comment_button' %>
+  </div>
+<% end %>

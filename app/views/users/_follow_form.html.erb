@@ -1,0 +1,18 @@
+div id="follow_form_<%= user.id %>">
+  <% unless user == current_user %>
+    <% if current_user.friend?(user) %>
+      <%= form_for(current_user.relationships.find_by(followed_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+        <%= f.button fa_icon("user-times", text: "友達をやめる"), class: 'fa btn btn-primary' %>
+      <% end %>
+    <% elsif followed_by_current_user?(user,current_user) %>
+      <%= form_for(current_user.relationships.find_by(followed_id: user.id), html: { method: :delete }, remote: true) do |f| %>
+        <%= f.button fa_icon("user-times", text: "申請を取り消す"), class: 'fa btn btn-primary' %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.relationships.build(followed_id: user.id), remote: true) do |f| %>
+        <%= f.hidden_field :followed_id %>
+        <%= f.button fa_icon("user-plus", text: "友達になる"), class: 'fa btn btn-primary' %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

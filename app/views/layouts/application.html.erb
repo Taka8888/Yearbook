@@ -1,14 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Yearbook</title>
-    <%= csrf_meta_tags %>
+<head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <title>Fakebook</title>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+</head>
+
+
+
+
+<div class="content content-header clearfix">
+  <div class="wrapper">
+    <h1>fakebooke</h1>
+
+
+
+
+
+
+
+<button class="fill"><%=link_to "ホーム", root_path %></button class="fill">
+<button class="fill"><%=link_to "投稿機能", topics_path %></button class="fill">
+<button class="fill"><%= link_to 'マイページ', edit_user_registration_path %></button class="fill">
+<%= link_to 'ユーザー一覧', users_path if user_signed_in? %>
+<%= link_to "メッセージ", conversations_path if user_signed_in? %>
+<% if user_signed_in? %>
+
+<section class="main-header">
+  <p class="flash"><%= notice %><%= alert %></p>
+<% if user_signed_in? %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to 'ログイン', new_user_session_path %>
+<%= link_to 'サインアップ', new_user_registration_path %>
+<% end %>
+
+  </div>
+
+
+
+</div>
+</div>
+</form>
+</div>
+<!-- wrapper -->
+</div>
+
+
+    <script>
+      var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+        encrypted: true,
+        cluster: 'ap1'
+      });
+      var channel = pusher.subscribe("user_<%= current_user.id %>_channel");
+      channel.bind('comment_created', function(data) {
+        alert(data.message);
+      });
+    </script>
+    <%= link_to notifications_index_path, class: "navbar-brand" do %>
+      <i class="fa fa-bell fa-1x"><span id="unread_count"><%= @notifications_count %></span></i>
+    <% end %>
+  <% end %>
+<body>
+
+
+
+<%=yield%>
+
+</body>
 </html>

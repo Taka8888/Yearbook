@@ -1,0 +1,7 @@
+$('.post_content_<%= post.id %>').html("<%= j(render partial: 'posts/form', locals: { comment: @comment, post: @post }) %>");
+$('#edit_post_<%= post.id %> #post_content').removeClass('border');
+$('#edit_post_<%= post.id %> #post_content').css('border', '1px solid #ccc');
+$('#edit_post_<%= post.id %> #post_content').css('border-color', '#66afe9');
+$('#edit_post_<%= post.id %> #post_content').css('outline', '0');
+$('#edit_post_<%= post.id %> #post_content').css('-webkit-box-shadow', 'inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)');
+$('#edit_post_<%= post.id %> #post_content').css('box-shadow', ' inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)');

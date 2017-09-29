@@ -1,0 +1,1 @@
+$('.post_content_<%= @post.id %>').html("<%= j(render partial: 'posts/form', locals: { post: @post }) %>");

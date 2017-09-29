@@ -1,0 +1,8 @@
+<% if current_user.request_friend.present? %>
+    <div class="request-friend-field">
+      <p>友達リクエスト</p>
+      <% current_user.request_friend.each do |user| %>
+          <div class="request-content"><%= link_to user.name, user_path(user) %>さんから友達リクエストの申請があります。</div>
+      <% end %>
+    </div>
+<% end %>

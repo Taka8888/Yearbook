@@ -1,0 +1,37 @@
+<div class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3">
+  <div class="post">
+    <div class="post_body">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li>
+            <%= link_to '編集', edit_post_path(@post), remote: true %>
+          </li>
+          <li><%= link_to '削除', post_path(@post), method: :delete, data: { confirm: "本当に投稿を削除してよろしいですか？", cancel: "やめる", commit: "削除する"}, title: "削除の確認" %></li>
+        </ul>
+      </div>
+      <div class="post_content_<%= @post.id %>">
+        <%= html_escape_br(@post) %>
+      </div>
+      <br>
+      <%= image_tag @post.avatar %>
+        <%= link_to root_path do %>
+            <i class="fa  fa-thumbs-o-up fa-lg" aria-hidden="true"></i>
+            <%= link_to 'いいね！' %>
+        <% end %>
+    </div>
+    <hr>
+    <div class="post_comment">
+      <div class="comments_area_<%= @post.id %>">
+        <div class="comments_content_<%= @post.id %>">
+          <%= render partial: 'comments/index', locals: { comments: @post.comments, post: @post } %>
+        </div>
+        <div class="comment_form_<%= @post.id %>">
+          <%= render partial: 'comments/form', locals: { comment: @comment = @post.comments.build, post: @post } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
