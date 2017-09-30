@@ -1,0 +1,4 @@
+$('.alert').remove();
+$(".field_with_errors").removeClass("field_with_errors");
+$('.comments_content_<%= @topic.id %>').html("<%= j(render partial: 'comments/index', locals: { comments: @topic.comments, topic: @topic }) %>")
+$('.comments_area_<%= @topic.id %> #comment_content').val('');

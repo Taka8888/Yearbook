@@ -10,7 +10,7 @@
     </ul>
     </div>
 <% end %>
-<%= form_for(@comment, url: comment_choose_new_or_edit(post, comment), data: { remote: true }) do |f|  %>
+<%= form_for(@comment, url: comment_choose_new_or_edit(topic, comment), data: { remote: true }) do |f|  %>
   <div class="field">
     <%= f.text_field :content, placeholder: "コメントする...", class: "form-control"  %>
   </div>

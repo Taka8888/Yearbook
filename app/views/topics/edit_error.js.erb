@@ -1,0 +1,1 @@
+$('.topic_content_<%= @topic.id %>').html("<%= j(render partial: 'topics/form', locals: { topic: @topic }) %>");

@@ -1,4 +1,3 @@
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require data-confirm-modal
 //= require_tree .

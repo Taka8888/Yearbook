@@ -1,0 +1,7 @@
+$('.topic_content_<%= topic.id %>').html("<%= j(render partial: 'topics/form', locals: { comment: @comment, topic: @topic }) %>");
+$('#edit_topic_<%= topic.id %> #topic_content').removeClass('border');
+$('#edit_topic_<%= topic.id %> #topic_content').css('border', '1px solid #ccc');
+$('#edit_topic_<%= topic.id %> #topic_content').css('border-color', '#66afe9');
+$('#edit_topic_<%= topic.id %> #topic_content').css('outline', '0');
+$('#edit_topic_<%= topic.id %> #topic_content').css('-webkit-box-shadow', 'inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)');
+$('#edit_topic_<%= topic.id %> #topic_content').css('box-shadow', ' inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)');

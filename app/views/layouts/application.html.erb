@@ -17,17 +17,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to posts_path, class: "navbar-brand" do %>
+        <%= link_to topics_path, class: "navbar-brand" do %>
           <i class="fa fa-facebook-official"></i>
         <% end %>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'ホーム', posts_path %></li>
+          <li><%= link_to 'ホーム', topics_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li><%= link_to user_path(current_user), class: 'icon-link' do %>
-                <%= profile_img(current_user) %>  <%= current_user.name %>
+                <%= icon_img(current_user) %>  <%= current_user.name %>
               <% end %>
             </li>
             <li><%= link_to 'ユーザー一覧', users_path %></li>
@@ -46,7 +46,7 @@
 </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">© 2017 takataka</p>
+      <p class="text-muted">© 2017 Taka</p>
     </div>
   </footer>
 </body>
