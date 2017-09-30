@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class TopicsControllerTest < ActionDispatch::IntegrationTest
+class postsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @topic = topics(:one)
+    @post = posts(:one)
   end
 
   test "should get index" do
-    get topics_url
+    get posts_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_topic_url
+    get new_post_url
     assert_response :success
   end
 
-  test "should create topic" do
-    assert_difference('Topic.count') do
-      post topics_url, params: { topic: {  } }
+  test "should create post" do
+    assert_difference('post.count') do
+      post posts_url, params: { post: {  } }
     end
 
-    assert_redirected_to topic_url(Topic.last)
+    assert_redirected_to post_url(post.last)
   end
 
-  test "should show topic" do
-    get topic_url(@topic)
+  test "should show post" do
+    get post_url(@post)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_topic_url(@topic)
+    get edit_post_url(@post)
     assert_response :success
   end
 
-  test "should update topic" do
-    patch topic_url(@topic), params: { topic: {  } }
-    assert_redirected_to topic_url(@topic)
+  test "should update post" do
+    patch post_url(@post), params: { post: {  } }
+    assert_redirected_to post_url(@post)
   end
 
-  test "should destroy topic" do
-    assert_difference('Topic.count', -1) do
-      delete topic_url(@topic)
+  test "should destroy post" do
+    assert_difference('post.count', -1) do
+      delete post_url(@post)
     end
 
-    assert_redirected_to topics_url
+    assert_redirected_to posts_url
   end
 end

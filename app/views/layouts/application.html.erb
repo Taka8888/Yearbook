@@ -27,7 +27,7 @@
           <% if user_signed_in? %>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <li><%= link_to user_path(current_user), class: 'icon-link' do %>
-                <%= icon_img(current_user) %>  <%= current_user.name %>
+                <%= profile_img(current_user) %>  <%= current_user.name %>
               <% end %>
             </li>
             <li><%= link_to 'ユーザー一覧', users_path %></li>

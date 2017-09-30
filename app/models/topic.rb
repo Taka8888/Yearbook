@@ -1,2 +1,2 @@
-class Topic < ApplicationRecord
+class topic < ApplicationRecord
 end

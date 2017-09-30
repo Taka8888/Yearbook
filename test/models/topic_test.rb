@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TopicTest < ActiveSupport::TestCase
+class postTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

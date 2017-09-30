@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Topics</h1>
+<h1>posts</h1>
 
 <table>
   <thead>
@@ -10,11 +10,11 @@
   </thead>
 
   <tbody>
-    <% @topics.each do |topic| %>
+    <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Topic', new_topic_path %>
+<%= link_to 'New post', new_post_path %>

@@ -1,1 +1,1 @@
-json.partial! "topics/topic", topic: @topic
+json.partial! "posts/post", post: @post

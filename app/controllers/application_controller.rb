@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
 
   def after_sign_in_path_for(resource)
-    topics_path
+    posts_path
   end
 
   protected

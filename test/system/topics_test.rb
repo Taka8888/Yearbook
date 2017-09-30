@@ -1,9 +1,9 @@
 require "application_system_test_case"
 
-class TopicsTest < ApplicationSystemTestCase
+class postsTest < ApplicationSystemTestCase
   # test "visiting the index" do
-  #   visit topics_url
+  #   visit posts_url
   #
-  #   assert_selector "h1", text: "Topic"
+  #   assert_selector "h1", text: "post"
   # end
 end

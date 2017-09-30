@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-    @topic = Topic.find(params[:topic_id])
-    @comment = @topic.comments.build(comment_params)
+    @post = post.find(params[:post_id])
+    @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
@@ -16,15 +16,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
+    @post = post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     respond_to do |format|
-      format.js { render :edit, locals: { topic: @topic } }
+      format.js { render :edit, locals: { post: @post } }
     end
   end
 
   def update
-    @topic = Topic.find(params[:topic_id])
+    @post = post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
     if @comment.save
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
+    @post = post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.destroy
       respond_to do |format|

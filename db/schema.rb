@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929092107) do
+ActiveRecord::Schema.define(version: 20170930041942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20170929092107) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "relationships", force: :cascade do |t|
+  create_table "relationships", id: :serial, force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "topics", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +69,12 @@ ActiveRecord::Schema.define(version: 20170929092107) do
     t.string "provider", default: "", null: false
     t.string "image_url"
     t.string "avatar"
+    t.string "name"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true

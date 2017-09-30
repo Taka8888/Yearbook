@@ -1,9 +1,9 @@
 module CommentsHelper
-  def comment_choose_new_or_edit(topic, comment)
+  def comment_choose_new_or_edit(post, comment)
     if action_name == 'index' || action_name == 'create' || action_name == 'show'
-      topic_comments_path(topic)
+      post_comments_path(post)
     elsif action_name == 'edit'
-      topic_comment_path(topic, comment)
+      post_comment_path(post, comment)
     end
   end
 end

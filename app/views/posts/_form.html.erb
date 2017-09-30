@@ -10,13 +10,13 @@
     </ul>
   </div>
 <% end %>
-<%= form_for(@post, url: choose_new_or_edit, remote: true, authenticity_token: true ) do |f| %>
+<%= form_for(@post,remote: true, authenticity_token: true ) do |f| %>
   <%= f.text_area :content, class: 'form-control', placeholder: "今なにしてるの？" %>
   <div class="image-post">
     <%= f.file_field :avatar %>
     <%= f.hidden_field :avatar_cache %>
   </div>
   <div class="post_post_footer">
-    <%= f.submit button_name, class: 'btn btn-primary btn-sm post_button' %>
+    <%= f.submit  class: 'btn btn-primary btn-sm post_button' %>
   </div>
 <% end %>

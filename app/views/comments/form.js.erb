@@ -1,1 +1,1 @@
-$('.comment_form_<%= @topic.id %>').html("<%= j(render partial: 'comments/form', locals: { comment: @comment, topic: @topic }) %>");
+$('.comment_form_<%= @post.id %>').html("<%= j(render partial: 'comments/form', locals: { comment: @comment, post: @post }) %>");

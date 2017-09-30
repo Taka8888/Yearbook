@@ -9,10 +9,15 @@
       </div>
     </div>
     <div class="post_post_form">
-      <%= form_img(current_user) %>
+      <%= profile_img(current_user) %>
       <%= render partial: 'form' %>
     </div>
   </div>
+
+
+ <%#= page_entries_info(@posts) %> -->
+
+
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post_body">
@@ -57,14 +62,14 @@
 <div class="col-md-3 hidden-xs hidden-sm">
   <div class="maybe-friend-field">
     <span>知り合いかも？</span>
-    <% @maybe_friend.each do  |user| %>
-      <li><strong class="info_name"><%= index_profile_img(user) %> <%= link_to user.name, user_path(user) %></strong></li>
-    <% end %>
+    <%# @maybe_friend.each do  |user| %>
+      <li><strong class="info_name"><%#= index_profile_img(user) %> <%#= link_to user.name, user_path(user) %></strong></li>
+    <%# end %>
   </div>
   <%= render 'users/request_friend' %>
 </div>
 <div class="col-xs-12 col-sm-12">
   <div class="page-nation">
-    <%= paginate @posts %>
+    <%#= paginate @posts %>
   </div>
 </div>
