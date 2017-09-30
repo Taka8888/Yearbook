@@ -31,6 +31,7 @@ gem 'pusher'
 gem 'fog'
 gem 'dotenv-rails'
 gem 'unicorn'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
