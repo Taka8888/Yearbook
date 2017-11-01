@@ -1,0 +1,22 @@
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <div class="alert-danger-text">
+      <%= @post.errors.count %>つのエラーが含まれています。
+    </div>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= t msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for(@post, url: choose_new_or_edit, remote: true, authenticity_token: true ) do |f| %>
+  <%= f.text_area :content, class: 'form-control', placeholder: "今なにしてる？" %>
+  <div class="image-post">
+    <%#= f.file_field :avatar %>
+    <%#= f.hidden_field :avatar_cache %>
+  </div>
+  <div class="post_post_footer">
+    <%= f.submit button_name, class: 'btn btn-primary btn-sm post_button' %>
+  </div>
+<% end %>
