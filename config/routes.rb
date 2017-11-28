@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'top#new'
 
   resources :posts, only: [:index, :create, :edit, :show, :update, :destroy] do
