@@ -5,8 +5,9 @@ Rails.application.routes.draw do
  end
 
   resources :topics, only:[:create, :edit,  :update, :index, :destroy]do
-    resources :likes , only: [:create, :destroy]
     resources :comments, only: [:create, :edit, :update, :destroy]
+    resources :likes , only: [:create, :destroy]
+
   end
 
   devise_for :users, controllers: {

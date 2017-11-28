@@ -532,6 +532,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   fog
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

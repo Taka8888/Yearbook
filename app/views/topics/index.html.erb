@@ -17,17 +17,19 @@
     <div class="topic">
       <div class="topic_body">
         <% if topic.user_id == current_user.id %>
-          <div class="dropdown">
+
+
+
+          <!-- <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fa fa-angle-down" aria-hidden="true"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li>
-                <%= link_to '編集', edit_topic_path(topic), remote: true %>
-              </li>
-              <li><%= link_to '削除', topic_path(topic), method: :delete, data: { confirm: "本当に投稿を削除してよろしいですか？", cancel: "やめる", commit: "削除する"}, title: "削除の確認" %></li>
-            </ul>
-          </div>
+              <li> -->
+                <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-success',  remote: true %>
+              <%= link_to '削除', topic_path(topic), method: :delete, data: { confirm: "本当に投稿を削除してよろしいですか？", cancel: "やめる", commit: "削除する"},  class: 'btn btn-default btn-danger'  %>
+            <!-- </ul>
+          </div> -->
         <% end %>
         <div class="topic-user-filed">
           <%= icon_img(topic.user) %>

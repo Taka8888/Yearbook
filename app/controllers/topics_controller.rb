@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:edit, :update, :show, :destroy]
   before_action :set_all_topics, only: [:index, :create, :show]
   before_action :authenticate_user!
-  
+
   def index
     @topic = Topic.new
     @maybe_friend = current_user.random_friend
@@ -42,13 +42,13 @@ class TopicsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @topic.destroy
     redirect_to topics_path
     flash[:success] = '削除しました'
   end
-  
+
   private
     def topics_params
       params.require(:topic).permit(:title, :content, :avatar)
@@ -57,8 +57,9 @@ class TopicsController < ApplicationController
     def set_topic
       @topic = Topic.find(params[:id])
     end
-  
+
     def set_all_topics
       @topics = Topic.page(params[:page]).order(id: :desc)
     end
+
 end
