@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'top#new'
 
   resources :posts, only: [:index, :create, :edit, :show, :update, :destroy] do
+ end
+
+  resources :topics, only:[:create, :edit,  :update, :index, :destroy]do
+    resources :likes , only: [:create, :destroy]
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :conversations, only: :create do
     resources :messages, only: [:index, :create]
+
   end
 
   resources :relationships, only: [:create, :destroy]
