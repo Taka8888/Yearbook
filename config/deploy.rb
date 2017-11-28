@@ -1,7 +1,7 @@
 lock '3.6.0'
 
 # デプロイするアプリケーション名
-set :application, 'Yearbook'
+set :application, 'yearbook'
 
 # cloneするgitのレポジトリ（xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/Taka8888/Yearbook'
@@ -10,7 +10,7 @@ set :repo_url, 'https://github.com/Taka8888/Yearbook'
 set :branch, ENV['BRANCH'] || 'master'
 
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/Yearbook'
+set :deploy_to, '/var/www/yearbook'
 
 # シンボリックリンクをはるフォルダ・ファイル
 set :linked_files, %w{.env config/secrets.yml}
