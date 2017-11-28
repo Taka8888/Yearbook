@@ -44,6 +44,11 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "database_cleaner"
   gem "launchy"
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -55,6 +60,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'letter_opener_web'
+
 end
 
 
