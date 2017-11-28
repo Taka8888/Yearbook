@@ -2,12 +2,15 @@
   <%= link_to topic_like_path(like, topic_id: topic.id), id: "delete-like-button", method: :delete, remote: true do %>
     <i class="fa  fa-thumbs-o-up fa-lg like-done" aria-hidden="true"></i>
   <% end %>
-  <span class="like-done-text">いいね！ </span>
+  <span class="like-done-text">いいね！ <%= topic.like_count %>人</span>
 <% else %>
   <%= link_to topic_likes_path(topic.id), id: "add-like-button", method: :post, remote: true do %>
     <i class="fa  fa-thumbs-o-up fa-lg like-before" aria-hidden="true"></i>
   <% end %>
-    <span class="like-before-text">いいね！</span>
-  
+    <span class="like-before-text">いいね！
+      <% unless topic.like_count == nil || topic.like_count == 0 %>
+      <%= topic.like_count %>人
+      <% end %>
+  </span>
 
 <% end %>
