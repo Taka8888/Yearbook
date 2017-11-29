@@ -37,7 +37,7 @@ n = 1
 while n <= 100
   Coment.create(
     user_id: n,
-    topic_id:n,
+    topic_id: n,
     content: "hogehoge"
   )
   n = n + 1
