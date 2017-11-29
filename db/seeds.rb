@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+100.times do |n|
+ email = Faker::Internet.email
+ name=Faker::Name.name
+ password = "password"
+ avatar=Faker::Avatar.image
+User.create!(
+
+             name: name,
+              email: email,
+              password: password,
+              password_confirmation: password,
+              uid: n,
+              provider: n,
+              image_url: avatar
+
+              )
+end
+
+n = 1
+while n <= 100
+  Topic.create(
+    title: "あああ",
+    content: "hoge",
+    user_id: n
+  )
+  n = n + 1
+end
