@@ -7,8 +7,13 @@
       </li>
       <% if comment.user_id == current_user.id %>
 
+
+
+
+
          <%= link_to topic_comment_path(topic, comment), method: :delete , remote: true, data: { confirm: "本当に <strong>#{comment.content}</strong> を削除してよろしいですか？", cancel: "やめる", commit: "削除する"}, title: "削除の確認"  do %>
            <span class="fa fa-trash" aria-hidden="true"></span>
+               <%= link_to '編集', edit_topic_comment_path(topic, comment),  remote: true %>
          <% end %>
       <% end %>
     </div>

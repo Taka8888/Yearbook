@@ -5,12 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+name=Faker::Name.name
+password = "password"
+avatar=Faker::Avatar.image
+
 100.times do |m|
- email = Faker::Internet.email
- name=Faker::Name.name
- password = "password"
- avatar=Faker::Avatar.image
-User.create!(
+  email = Faker::Internet.email
+  user = User.create!(
 
              name: name,
               email: email,
@@ -21,24 +23,38 @@ User.create!(
               image_url: avatar
 
               )
-end
+              topic = Topic.create!(
 
-n = 1
-while n <= 100
-  Topic.create(
-    title: "あああ",
-    content: "hoge",
-    user_id: n
-  )
-  n = n + 1
-end
+              title: "いいいいいい",
+              user_id: user.id,
+              content: "ううううう",
+              avatar:  avatar
 
-n = 1
-while n <= 100
-  Coment.create(
-    user_id: n,
-    topic_id: n,
-    content: "hogehoge"
-  )
-  n = n + 1
+                            )
+                            Comment.create!(
+                              user_id: user.id,
+                              topic_id: topic.id,
+                              content: "hogehoge"
+                            )
 end
+# 
+# 100.times do |m|
+# Topic.create!(
+#
+# title: "いいいいいい",
+# user_id: m,
+# content: "ううううう",
+# avatar:  avatar
+#
+#               )
+# end
+#
+# n = 1
+# while n <= 100
+#   Comment.create!(
+#     user_id: n,
+#     topic_id: n,
+#     content: "hogehoge"
+#   )
+#   n = n + 1
+# end
