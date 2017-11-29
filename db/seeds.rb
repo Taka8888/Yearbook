@@ -28,7 +28,7 @@ while n <= 100
   Topic.create(
     title: "あああ",
     content: "hoge",
-    user_id: n,
+    user_id: n
   )
   n = n + 1
 end
@@ -38,7 +38,7 @@ while n <= 100
   Coment.create(
     user_id: n,
     topic_id:n,
-    content: "hogehoge",
+    content: "hogehoge"
   )
   n = n + 1
 end
