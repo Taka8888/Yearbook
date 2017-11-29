@@ -8,7 +8,6 @@ end
 
 
 gem 'rails', '~> 5.1.0'
-gem 'sqlite3','1.3.13'
 gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
@@ -34,7 +33,7 @@ gem 'dotenv-rails'
 gem 'unicorn'
 gem 'twitter-bootstrap-rails'
 gem'data-confirm-modal'
-gem 'therubyracer'
+gem 'therubyracer' , platforms: :ruby
 gem 'less-rails'
 gem 'font-awesome-rails'
 
