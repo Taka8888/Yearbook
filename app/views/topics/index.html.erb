@@ -25,7 +25,7 @@
               <i class="fa fa-angle-down" aria-hidden="true"></i>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li> -->
+              <li>
                 <%= link_to '編集', edit_topic_path(topic), class: 'btn btn-default btn-success',  remote: true %>
               <%= link_to '削除', topic_path(topic), method: :delete, data: { confirm: "本当に投稿を削除してよろしいですか？", cancel: "やめる", commit: "削除する"},  class: 'btn btn-default btn-danger'  %>
              </ul>
